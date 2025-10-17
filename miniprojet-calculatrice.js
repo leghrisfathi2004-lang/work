@@ -7,42 +7,48 @@ function addition(a, b){
 }
 
 function Soustraction( a, b){
-    res = a - b;
+    let res = a - b;
     console.log(`${a} - ${b} = ${res}`);
     return `\n${a} - ${b} = ${res}`;
 }
 
 function Multiplication( a, b){
-    res = a * b;
+    let res = a * b;
     console.log(`${a} * ${b} = ${res}`);
     return `\n${a} * ${b} = ${res}`;
 }
 
 function Division( a, b){
-    res = a / b;
+    let res = a / b;
     console.log(`${a} / ${b} = ${res}`);
     return `\n${a} / ${b} = ${res}`;
 }
 
 function Puissance( a, b){
-    res = a ** b
+    let res = a ** b
     console.log(`${a} ^ ${b} = ${(res)}`);
     return `\n${a} ^ ${b} = ${(res)}`;
 }
 
 function Racine(a){
-    res = a ** 0.5;
+    let res = a ** 0.5;
     console.log(`${a} ^ 0.5 = ${res}`);
     return `\n${a} ^ 0.5 = ${res}`;
 }
 
 function Factorielle(a){
-    res = 1;
+    let res = 1;
     for(let i=0; i<a; i++){
         res *=(a - i);
     }
     console.log(`${a}! = ${res}`);
     return `\n${a}! = ${res}`;
+}
+
+function menubar(){
+    console.log("___________________\nselect l operation:\n  pour Addition: 1\n  pour Soustraction: 2\n  pour Multiplication: 3\n  pour Division: 4\n  pour Puissance: 5\n  pour Racine carrée: 6\n  pour Factorielle: 7\n  pour affiche histoire: 8\n  pour quite entre: 9\n___________________");
+    let menu = Number(prompt(" votre reponse:"));
+    return menu;
 }
 
 
@@ -55,7 +61,8 @@ let history = [];
 
 while( call <9){
 
-    call = Number( prompt("select l operation:\n  pour Addition: 1\n  pour Soustraction: 2\n  pour Multiplication: 3\n  pour Division: 4\n  pour Puissance: 5\n  pour Racine carrée: 6\n  pour Factorielle: 7\n  pour affiche histoire: 8\n  pour quite entre: 9\n votre reponse: "));
+    call = menubar();
+    
     
     switch(call){
         case 1:
@@ -93,7 +100,7 @@ while( call <9){
             history.push(Factorielle(n1));
             break;
         case 8:
-            console.log(`l historique: ${history}`)
+            console.log(`l historique: ${history}`);
             break;
         default:
             break;
