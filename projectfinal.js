@@ -69,10 +69,10 @@ function trier(){
     switch(choi){
         case 1://ascendant
             for(let i=0; i<n; i++)
-                affiche(i);
+                affiche_lv(i);
             break
         case 2://descendant
-            for(let i=n-1; i>=0; i--) affiche(i);
+            for(let i=n-1; i>=0; i--) affiche_lv(i);
             break;
         default:
             while(choi != 1 && choi != 2) 
@@ -102,7 +102,7 @@ function trier_anne(){
             }
         }
     }
-    for(let i=0;i<n; i++) affiche(i);
+    for(let i=0;i<n; i++) affiche_lv(i);
 }
 
 function affiche_lv(i){
@@ -117,7 +117,7 @@ function affiche_lv(i){
 function affiche_disponible(){
     let n = livres.disponible.length;
     for(let i=0; i<n; i++){
-        if(livres.disponible[i] == true) affiche(i);
+        if(livres.disponible[i] == true) affiche_lv(i);
     }
 }
 
@@ -196,7 +196,8 @@ function ajoute_em(){
         id_lv = cherche_lv();
     }while(id_lv == undefined)
     if(livres.disponible[id_lv] == false) return console.log(`Livre deja emprunte`);
-    else livres.disponible[id_lv] = false;
+
+    livres.disponible[id_lv] = false;
     emprunts.id_livre.push(id_lv);
     
     let d = prompt(`la date d emprunt(anne-moi-jour): `);
@@ -248,8 +249,21 @@ do{
             ajouter_lv();
             break;
         case 2:
-            n_lv = livres.titre.length;
-            for(let i=0; i<n_lv; i++)   affiche_lv(i);
+            console.log(`affichage:\ntrier par titre --> 1\ntrier par anne de publication --> 2\naffiche les livres disponibles --> 3`);
+            c = Number(prompt(`votre reponse: `));
+            switch(c){
+                case 1:
+                    trier();
+                    break;
+                case 2:
+                    trier_anne();
+                    break;
+                case 3:
+                    affiche_disponible();
+                    break;
+                default:
+                    break;
+            }
             break;
         case 3:
             affiche_lv(cherche_lv());
