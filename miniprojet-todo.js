@@ -1,10 +1,10 @@
 const prompt = require ("prompt-sync")();
 
 const tache = {
-    id: [ ],
-    titre: [ ],
-    description : [ ],
-    isdone: [ ]
+    id: [1],
+    titre: [1],
+    description: [1],
+    isdone: [1]
 }
 
 function afficherAll(){
@@ -110,8 +110,8 @@ function tachetermine(){
             flage = false;
             break;
         default:
-            while(stt != 1 || stt != 2){
-                let stt =Number( promptet(`entre valide number:`));
+            while(stt != 1 && stt != 2){
+                stt =Number( prompt(`entre valide number:`));
             }
             break;
     }
@@ -166,4 +166,4 @@ do{
             break;
     }
 }while(choi != 0);
-console.log('good bye!')
+console.log('good bye!');
